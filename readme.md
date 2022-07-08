@@ -13,23 +13,23 @@ To initialize, fork and clone this reponsitry, run `npm install` and then `npm s
 
 ---
 
-###Screenshots
+# Screenshots
 
-##Home Page
+## Home Page
 
 ![Image](https://i.imgur.com/zFZwimb.png)
 
-##Deck View
+## Deck View
 ![Image](https://i.imgur.com/NCFwOAI.png)
 
-##Study View
+## Study View
 ![Image](https://i.imgur.com/2SwEZhj.png)
 
-##Create Deck
+## Create Deck
 ![Image](https://i.imgur.com/oXfZbN0.png)
 
-##Create Card
+## Create Card
 ![Image](https://i.imgur.com/G7k7cfs.png)
 
-##Edit Card
+## Edit Card
 ![Image](https://i.imgur.com/44F75LA.png)
