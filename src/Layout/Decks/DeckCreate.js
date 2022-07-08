@@ -34,6 +34,7 @@ export default function DeckCreate() {
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
+            required
             name="name"
             type="text"
             onChange={handleChange}
@@ -44,6 +45,7 @@ export default function DeckCreate() {
         <div className="form-group">
           <label htmlFor="description">Description</label>
           <textarea
+            required
             name="description"
             type="text"
             className="form-control"

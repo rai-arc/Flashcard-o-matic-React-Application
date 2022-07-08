@@ -21,6 +21,8 @@ export default function CardForm({
       <div className="form-group">
         <label htmlFor="card-front">Front</label>
         <textarea
+          required
+          type="text"
           className="form-control"
           defaultValue={formData.front}
           onChange={handleInputChange}
@@ -31,6 +33,8 @@ export default function CardForm({
       <div className="form-group">
         <label htmlFor="card-back">Back</label>
         <textarea
+          required
+          type="text"
           className="form-control"
           defaultValue={formData.back}
           onChange={handleInputChange}

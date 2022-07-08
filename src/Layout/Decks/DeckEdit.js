@@ -6,59 +6,60 @@ import { readDeck, updateDeck } from "../../utils/api";
 //This component is used to edit any deck.
 
 export default function DeckEdit() {
-  const [currentDeck, setCurrentDeck] = useState({});
+  const [formData, setFormData] = useState({});
   let { deckId } = useParams();
   useEffect(() => {
     async function setDeck() {
       const response = readDeck(deckId);
       const apiDeck = await response;
-      setCurrentDeck(apiDeck);
+      setFormData(apiDeck);
     }
     setDeck();
   }, [deckId]);
 
   const history = useHistory();
-  const [formData, setFormData] = useState({ currentDeck });
+
   const handleChange = ({ target }) => {
     setFormData({
-      ...currentDeck,
+      ...formData,
       [target.name]: target.value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await updateDeck(formData);
-    const deckId = response.id;
+    await updateDeck(formData);
     history.push(`/decks/${deckId}`);
   };
 
   return (
     <>
-      <Navigation deck={currentDeck} pageName="Edit Deck" />
+      <Navigation deck={formData} pageName="Edit Deck" />
       <h1>Edit Deck</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
+            required
             name="name"
             type="text"
             onChange={handleChange}
             className="form-control"
-            defaultValue={currentDeck.name}
+            defaultValue={formData.name}
           ></input>
         </div>
         <div className="form-group">
           <label htmlFor="description">Description</label>
           <textarea
+            required
             name="description"
             type="text"
             className="form-control"
             onChange={handleChange}
-            defaultValue={currentDeck.description}
+            defaultValue={formData.description}
           ></textarea>
         </div>
-        <Link to={`/decks/${currentDeck.id}`}>
+        <Link to={`/decks/${formData.id}`}>
           <button className="btn btn-secondary">Cancel</button>
         </Link>
         <button className="btn btn-primary">Submit</button>
