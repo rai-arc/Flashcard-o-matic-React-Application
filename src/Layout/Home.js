@@ -16,7 +16,6 @@ export default function Home() {
     }
     loadDecks();
   }, []);
-  console.log(decks);
 
   const deleteDeckHandler = (deckId) => {
     if (
@@ -24,8 +23,6 @@ export default function Home() {
     ) {
       deleteDeck(deckId);
       history.go(0);
-    } else {
-      console.log("deleteDeck canceled");
     }
   };
 
